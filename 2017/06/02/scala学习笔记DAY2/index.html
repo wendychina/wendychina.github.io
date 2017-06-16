@@ -1,0 +1,795 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Scala," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="在Scala中，换行可以代替分号的作用 条件表达式Scala的if/else表达式有值，这个值就是跟在if或者else之后的表达式的值。在Scala中每个表达式都有一个类型。比如if (x&amp;gt;0)1 else -1的类型是Int；混合类型表达式if(x&amp;gt;0) “positive” else -1的类型是两个分支类型的公共超类型。也就是Any类。如果else语句缺失了，如if(x&amp;gt;0">
+<meta name="keywords" content="Scala">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala学习笔记DAY2--控制结构和函数">
+<meta property="og:url" content="http://yoursite.com/2017/06/02/scala学习笔记DAY2/index.html">
+<meta property="og:site_name" content="晨风微询">
+<meta property="og:description" content="在Scala中，换行可以代替分号的作用 条件表达式Scala的if/else表达式有值，这个值就是跟在if或者else之后的表达式的值。在Scala中每个表达式都有一个类型。比如if (x&amp;gt;0)1 else -1的类型是Int；混合类型表达式if(x&amp;gt;0) “positive” else -1的类型是两个分支类型的公共超类型。也就是Any类。如果else语句缺失了，如if(x&amp;gt;0">
+<meta property="og:image" content="http://yoursite.com/images/Day2/1.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/2.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/3.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/4.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/5.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/6.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/7.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/8.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/9.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/10.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/11.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/12.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/13.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/14.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/15.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/16.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/17.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/18.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/19.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/20.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/21.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/22.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/23.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/24.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/25.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/26.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/27.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/28.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/29.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/30.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/31.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/32.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/33.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/34.png">
+<meta property="og:image" content="http://yoursite.com/images/Day2/35.png">
+<meta property="og:updated_time" content="2017-06-16T14:35:53.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scala学习笔记DAY2--控制结构和函数">
+<meta name="twitter:description" content="在Scala中，换行可以代替分号的作用 条件表达式Scala的if/else表达式有值，这个值就是跟在if或者else之后的表达式的值。在Scala中每个表达式都有一个类型。比如if (x&amp;gt;0)1 else -1的类型是Int；混合类型表达式if(x&amp;gt;0) “positive” else -1的类型是两个分支类型的公共超类型。也就是Any类。如果else语句缺失了，如if(x&amp;gt;0">
+<meta name="twitter:image" content="http://yoursite.com/images/Day2/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/02/scala学习笔记DAY2/"/>
+
+
+
+
+
+  <title>Scala学习笔记DAY2--控制结构和函数 | 晨风微询</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">晨风微询</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/02/scala学习笔记DAY2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="晨风微询">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晨风微询">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scala学习笔记DAY2--控制结构和函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T15:40:25+08:00">
+                2017-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Scala/" itemprop="url" rel="index">
+                    <span itemprop="name">Scala</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Scala中，换行可以代替分号的作用</p>
+<h2 id="条件表达式"><a href="#条件表达式" class="headerlink" title="条件表达式"></a>条件表达式</h2><p>Scala的if/else表达式有值，这个值就是跟在if或者else之后的表达式的值。<br><img src="/images/Day2/1.png" alt=""><br>在Scala中每个表达式都有一个类型。比如if (x&gt;0)1 else -1的类型是Int；混合类型表达式if(x&gt;0) “positive” else -1的类型是两个分支类型的公共超类型。也就是Any类。如果else语句缺失了，如if(x&gt;0)1 这个语句中可以输出值，但是因为每个表达式都应该有某种值，因此引入Unit类（类似于void，但是void没有值，Unit有一个表示“无值”的值），写作()表示“无有用值”的占位符。因此上述表达式也可以写成if(x&gt;0)1 else ()<br>REPL的近视问题：对于如下的代码，解释器在同一时间只能看见一行代码，因此只会在执行if(x1&lt;0) -1之后就显示结果，而对下一行的内容不知所措</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (x1&lt;0) -1</div><div class="line">else if (x1==9) 0 else 1</div></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<ol>
+<li><p>使用花括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (x1&lt;0)&#123; -1</div><div class="line">&#125; else if (x1==9) 0 else 1</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Scala的粘贴模式<br>：paste<br>//复制代码）<br>按下ctrl+D</p>
+</li>
+</ol>
+<h2 id="语句终止"><a href="#语句终止" class="headerlink" title="语句终止"></a>语句终止</h2><p>在Scala中行尾不需要分号只要能从上下文明确的判断这里是终止位置即可；如果需要在单行写下多个语句，那么就需要使用分号隔开，否则报错<br><img src="/images/Day2/2.png" alt=""><br>一般如果语句比较长，需要分两行来写，但是又担心解释器的近视问题，那么可以使用一个不能作为语句结束的符号作为结尾，比如+号，或者使用{号，在使用左括号之后编译器只有在看见匹配的右括号才回去推断某事是否是语句的结尾。<br><img src="/images/Day2/3.png" alt=""></p>
+<h2 id="块表达式和赋值"><a href="#块表达式和赋值" class="headerlink" title="块表达式和赋值"></a>块表达式和赋值</h2><p>在Scala中，块{}中包含了一系列的表达式，其结果也是一个表达式。块中最后一个表达式的值就是这个块的值。这个对于某些val初始化需要很多步的情况有用，可以使用一个语句结束<br><img src="/images/Day2/4.png" alt=""><br>在Scala中，赋值动作的值的类型是Unit类型，也就是说赋值动作是没有值的值，因此下面的语句不会把10赋予x3:<br><img src="/images/Day2/5.png" alt=""><br>这样的x3的类型就是Unit</p>
+<h2 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h2><p>使用readLine读取控制台的一行输入；使用readInt,readByte,readShort，readBoolean,readChar等读取特定的类型。readLine带一个参数作为提示符。<br><img src="/images/Day2/6.png" alt=""><br>Scala可以使用java风格的也可以使用C++风格的输出<br><img src="/images/Day2/7.png" alt=""></p>
+<p><img src="/images/Day2/8.png" alt=""></p>
+<h2 id="循环-while-do"><a href="#循环-while-do" class="headerlink" title="循环 while do"></a>循环 while do</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while(n&gt;0)&#123;</div><div class="line">r=r*n</div><div class="line">n-=1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>scala有for循环，但是没有for(初始化变量；检查变量是否满足条件；更新变量)这样的对应结构。因此只能使用如下两种循环<br>1.for(i&lt;-表达式)//让i遍历&lt;- 右边的表达式的所有值，如果这个表达式的类型是Range，那么就会让i一次取得区间中的每个值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for(i&lt;-1 to n)</div><div class="line">r=r*i</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Day2/9.png" alt=""><br>//注意在变量i之前并没有类型的指定，实际上这个变量的类型是集合的元素类型，这个循环变量的作用于是循环内部。<br> until方法 返回一个并不包含上限的区间<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for(i&lt;-0 until s.length)//遍历下标为0到s.length-1的字符串中的字符</div></pre></td></tr></table></figure></p>
+<p>对于字符串还可以直接遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for(ch&lt;-&quot;Hello&quot;) sum+=ch</div></pre></td></tr></table></figure></p>
+<p>在Scala中没有提供break或者continue退出循环，因此可以通过下面的方法来退出循环</p>
+<ol>
+<li>使用Boolean型的控制变量</li>
+<li>会用嵌套函数——从函数中return</li>
+<li>使用breaks对象的break方法，但是控制权的转移是通过抛出和捕获异常完成的，因此时间很重要的话，应该尽量避免使用这套机制。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import scala.util.control.Breako._</div><div class="line">breakable&#123;</div><div class="line">for(...)&#123;</div><div class="line">if(...) break;//退出breakable块</div><div class="line">...</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="高级for循环和for推导式"><a href="#高级for循环和for推导式" class="headerlink" title="高级for循环和for推导式"></a>高级for循环和for推导式</h2><p>可以使用变量&lt;-表达式的形式提供多个生成器（大胆推测这里的生成器是一种类型，Range,Vector都是生成器的子类），用分号隔开。类似于java的嵌套for循环<br><img src="/images/Day2/10.png" alt=""><br>可以给每个生成器带一个守卫，以if开头的Boolean表达式：<br><img src="/images/Day2/11.png" alt=""><br>可以在for语句中使用任意多的定义，引入可以在循环中使用的变量（这里不能使用var from＝4-i）<br><img src="/images/Day2/12.png" alt=""><br>上面的形式和下面的语句是一个含义<br><img src="/images/Day2/13.png" alt=""></p>
+<p>for推导式：如果for循环的循环体以yield开始，该循环会构造出一个集合，每次迭代生成集合中的一个值，注意生成的集合与for循环中第一个生成器的类型是兼容的（学习思考：第一个生成器类型是char，结果是String；第二个生成器类型是Range,但是结果是IndexedSeq。不是很理解）：<br><img src="/images/Day2/14.png" alt=""></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>java中往往使用静态方法来模拟函数。<br>定义函数：<br><img src="/images/Day2/15.png" alt=""><br>使用函数和使用方法差不多<br><img src="/images/Day2/16.png" alt=""><br>定义一个需要多个表达式的函数体，可以使用代码块{},块中最后一个表达式的值就是函数的返回值，scala中不经常使用return退出，但是可以使用return。<br><img src="/images/Day2/17.png" alt=""></p>
+<h2 id="默认值参数和带名参数"><a href="#默认值参数和带名参数" class="headerlink" title="默认值参数和带名参数"></a>默认值参数和带名参数</h2><p>在定义函数的时候可以给定默认值，当使用函数的时候，如果没有输入对应参数，那么就使用默认值代替。<br><img src="/images/Day2/18.png" alt=""><br>在使用函数的时候，如果指定了参数名，那么参数的顺序不一定要按照定义的顺序<br><img src="/images/Day2/19.png" alt=""><br>在调用函数的时候，可以混用未命名参数和带名参数。需要注意的是，无名参数值需要排在前面。<br><img src="/images/Day2/20.png" alt=""></p>
+<h2 id="变长参数"><a href="#变长参数" class="headerlink" title="变长参数"></a>变长参数</h2><p>scala中可以定义可变长度参数的函数<br><img src="/images/Day2/21.png" alt=""><br>在这里函数的输入是一个类型是Seq的参数。<br><img src="/images/Day2/22.png" alt=""><br>需要注意的是，不能传入1 to 5这种形式，这是一个区间的形式，而函数需要的是调用的时候传入单个参数。可以通过如下的方式告知编译器你希望这个参数被作为参数序列处理：<br><em>*这个可以将区域转换为参数序列<br><img src="/images/Day2/23.png" alt=""><br>在递归定义中我们会用到上述语法（这里不是很明白，按照s上下文的意思，1,2,3,4,5这种形式已经算是Seq类型了，这个类型正是函数需要的，那么在函数内部，args.tail得到的也是Seq类型的，为什么还需要：</em>*这个呢？）<br><img src="/images/Day2/24.png" alt=""><br>实际操作之后，发现函数内部需要的是Int型的参数，但是输入的是Seq,这是不是说明前面的内容说错了？函数需要的是Int型，而不是Seq，期待后面的13章的解释。<br><img src="/images/Day2/25.png" alt=""><br>下面的这一段我没有看懂，试着打了但是控制显示不知道<br><img src="/images/Day2/26.png" alt=""></p>
+<h2 id="过程-procedure"><a href="#过程-procedure" class="headerlink" title="过程(procedure)"></a>过程(procedure)</h2><p>函数体包含在花括号中，但是没有前面的“=”号。也就是没有返回值的函数，也就是说返回类型是Unit.这里可以有“：Unit =”但是前面的这种写法比较简单。<br><img src="/images/Day2/27.png" alt=""></p>
+<h2 id="懒值"><a href="#懒值" class="headerlink" title="懒值"></a>懒值</h2><p>当val被声明为lazy之后，其初始化将被推迟到我们首次对它取值的时候。这个对于开销比较大的初始化语句有用，比如说访问文件操作等。还可以用于应对循环依赖的问题。这是开发懒数据结构的基础。<br>val,lazy val ,def的关联<br><img src="/images/Day2/28.png" alt=""></p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>和java一样，如果抛出异常，那么当前的运算被终止，同时系统查找可以接受抛出异常的异常处理器，如果找到就进入处理器处理，如果没有找到则退出程序。抛出的异常必须是java.lang.throwable的子类，scala没有受检异常，因此不需要再定义函数和方法时说明函数或者方法可能抛出的异常。<br>之前提到每个Scala表达式都有返回值类型，而throw语句的类型是Nothing，因此如果在if/else中某个分支使用抛出异常，那么这个if/else表达式的类型就是另一个分支的类型。</p>
+<p>捕获异常所采用模式匹配的语法，当不需要使用异常对象时，可以用”_”代替异常对象的变量名。finally语句可以用于释放资源，在异常还没有处理的时候执行，和java一样一样的。<br><img src="/images/Day2/29.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">try &#123; ... &#125; catch &#123; ... &#125; finally &#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="练习题答案"><a href="#练习题答案" class="headerlink" title="练习题答案"></a>练习题答案</h2><ol>
+<li><img src="/images/Day2/30.png" alt=""></li>
+<li>一个空的块{}是Unit类型的，值是()</li>
+<li>当x的类型是Unit时</li>
+<li>使用Range的reverse方法 <img src="/images/Day2/31.png" alt=""></li>
+<li>第五题有点奇怪在函数中使用4题的答案反而出不了结果，显示reverse的使用有问题。<img src="/images/Day2/32.png" alt=""></li>
+<li>有的时候不能完全依赖scala的自动类型匹配 <img src="/images/Day2/33.png" alt=""></li>
+<li>StringOps中有一个方法是foreach,可用于对所有的元素执行某种运算。<img src="/images/Day2/34.png" alt=""></li>
+<li></li>
+<li>使用递归的方式 <img src="/images/Day2/35.png" alt=""></li>
+<li>略</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Scala/" rel="tag"># Scala</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/scala学习笔记DAY1/" rel="next" title="Scala学习笔记DAY1">
+                <i class="fa fa-chevron-left"></i> Scala学习笔记DAY1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/10/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="晨风微询" />
+          <p class="site-author-name" itemprop="name">晨风微询</p>
+           
+              <p class="site-description motion-element" itemprop="description">小花猫</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件表达式"><span class="nav-number">1.</span> <span class="nav-text">条件表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句终止"><span class="nav-number">2.</span> <span class="nav-text">语句终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块表达式和赋值"><span class="nav-number">3.</span> <span class="nav-text">块表达式和赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入和输出"><span class="nav-number">4.</span> <span class="nav-text">输入和输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-while-do"><span class="nav-number">5.</span> <span class="nav-text">循环 while do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级for循环和for推导式"><span class="nav-number">6.</span> <span class="nav-text">高级for循环和for推导式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认值参数和带名参数"><span class="nav-number">8.</span> <span class="nav-text">默认值参数和带名参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变长参数"><span class="nav-number">9.</span> <span class="nav-text">变长参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程-procedure"><span class="nav-number">10.</span> <span class="nav-text">过程(procedure)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒值"><span class="nav-number">11.</span> <span class="nav-text">懒值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-number">12.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习题答案"><span class="nav-number">13.</span> <span class="nav-text">练习题答案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晨风微询</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
