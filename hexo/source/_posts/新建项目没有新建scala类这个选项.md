@@ -17,3 +17,5 @@ IDEA集成环境下，新建一个scala的maven项目，在新项目的src-main-
 
 点击`file-project structure-modules`，将scala文件夹选择为source即可。so easy~
 如下图设置一下。
+
+![](/images/新建的项目没有新建scala类这个选项.png)
