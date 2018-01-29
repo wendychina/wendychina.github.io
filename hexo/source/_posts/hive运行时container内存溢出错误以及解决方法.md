@@ -11,7 +11,7 @@ categories: Hive
 
 ## 参考博客
 
-[点我](http://blog.csdn.net/yijichangkong/article/details/51332432)
+[http://blog.csdn.net/yijichangkong/article/details/51332432](http://blog.csdn.net/yijichangkong/article/details/51332432)
 
 # 错误描述
 
