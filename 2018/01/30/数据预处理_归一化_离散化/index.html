@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="支持向量机是一种线性分类器 ：基本思想是在两类线性可分条件下，所设计的分类器界面使两类之间的间隔为最大，它的基本出发点是使期望泛化风险尽可能小。（使用核函数可解决非线性问题）  SVM的目标是找到使得训练数据尽可能分开且分类间隔最大的超平面，应该属于结构风险最小化。  SVM可以通过正则化系数控制模型的复杂度，避免过拟合。    A正确。考虑加入正则化项的原因：想象一个完美的数据集，y&amp;gt;1">
+<meta name="description" content="这篇主要总结了七月在线题库中机器学习模块关于归一化和离散化的题目解析。里面的答案部分来自其他的博客。 归一化归一化的内容在《相似性计算——几种距离度量》里面也做了简单的介绍。  哪些机器学习算法不需要做归一化处理？  概率模型不需要归一化，因为它们不关心变量的值，而是关心变量的分布和变量之间的条件概率，如决策树、rf。而像adaboost、svm、lr、KNN、KMeans之类的最优化问题就需要归">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVM相关问题">
-<meta property="og:url" content="http://yoursite.com/2018/01/30/SVM相关问题/index.html">
+<meta property="og:title" content="数据预处理——归一化、离散化">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/数据预处理_归一化_离散化/index.html">
 <meta property="og:site_name" content="晨风微询">
-<meta property="og:description" content="支持向量机是一种线性分类器 ：基本思想是在两类线性可分条件下，所设计的分类器界面使两类之间的间隔为最大，它的基本出发点是使期望泛化风险尽可能小。（使用核函数可解决非线性问题）  SVM的目标是找到使得训练数据尽可能分开且分类间隔最大的超平面，应该属于结构风险最小化。  SVM可以通过正则化系数控制模型的复杂度，避免过拟合。    A正确。考虑加入正则化项的原因：想象一个完美的数据集，y&amp;gt;1">
-<meta property="og:image" content="http://yoursite.com/images/SVM相关问题.png">
+<meta property="og:description" content="这篇主要总结了七月在线题库中机器学习模块关于归一化和离散化的题目解析。里面的答案部分来自其他的博客。 归一化归一化的内容在《相似性计算——几种距离度量》里面也做了简单的介绍。  哪些机器学习算法不需要做归一化处理？  概率模型不需要归一化，因为它们不关心变量的值，而是关心变量的分布和变量之间的条件概率，如决策树、rf。而像adaboost、svm、lr、KNN、KMeans之类的最优化问题就需要归">
 <meta property="og:updated_time" content="2018-01-30T15:08:28.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVM相关问题">
-<meta name="twitter:description" content="支持向量机是一种线性分类器 ：基本思想是在两类线性可分条件下，所设计的分类器界面使两类之间的间隔为最大，它的基本出发点是使期望泛化风险尽可能小。（使用核函数可解决非线性问题）  SVM的目标是找到使得训练数据尽可能分开且分类间隔最大的超平面，应该属于结构风险最小化。  SVM可以通过正则化系数控制模型的复杂度，避免过拟合。    A正确。考虑加入正则化项的原因：想象一个完美的数据集，y&amp;gt;1">
-<meta name="twitter:image" content="http://yoursite.com/images/SVM相关问题.png">
+<meta name="twitter:title" content="数据预处理——归一化、离散化">
+<meta name="twitter:description" content="这篇主要总结了七月在线题库中机器学习模块关于归一化和离散化的题目解析。里面的答案部分来自其他的博客。 归一化归一化的内容在《相似性计算——几种距离度量》里面也做了简单的介绍。  哪些机器学习算法不需要做归一化处理？  概率模型不需要归一化，因为它们不关心变量的值，而是关心变量的分布和变量之间的条件概率，如决策树、rf。而像adaboost、svm、lr、KNN、KMeans之类的最优化问题就需要归">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/30/SVM相关问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/30/数据预处理_归一化_离散化/"/>
 
 
 
 
 
-  <title>SVM相关问题 | 晨风微询</title>
+  <title>数据预处理——归一化、离散化 | 晨风微询</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/SVM相关问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/数据预处理_归一化_离散化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="晨风微询">
@@ -276,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SVM相关问题</h1>
+          <h1 class="post-title" itemprop="name headline">数据预处理——归一化、离散化</h1>
         
 
         <div class="post-meta">
@@ -311,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">器学习</span>
                   </a>
                 </span>
 
@@ -345,38 +343,30 @@
       
 
       
-        <ol>
-<li><p>支持向量机是一种线性分类器 ：基本思想是在两类线性可分条件下，所设计的分类器界面使两类之间的间隔为最大，它的基本出发点是使期望泛化风险尽可能小。（使用核函数可解决非线性问题）</p>
-</li>
-<li><p>SVM的目标是找到使得训练数据尽可能分开且分类间隔最大的超平面，应该属于结构风险最小化。</p>
-</li>
-<li>SVM可以通过正则化系数控制模型的复杂度，避免过拟合。</li>
-</ol>
-<p><img src="/images/SVM相关问题.png" alt=""></p>
+        <p>这篇主要总结了七月在线题库中机器学习模块关于归一化和离散化的题目解析。里面的答案部分来自其他的博客。</p>
+<h1 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h1><p>归一化的内容在《相似性计算——几种距离度量》里面也做了简单的介绍。</p>
 <ol>
-<li>A正确。考虑加入正则化项的原因：想象一个完美的数据集，<code>y&gt;1</code>是正类，<code>y&lt;-1</code>是负类，决策面<code>y=0</code>，加入一个<code>y=-30</code>的正类噪声样本，那么决策面将会变“歪”很多，分类间隔变小，泛化能力减小。加入正则项之后，对噪声样本的容错能力增强，前面提到的例子里面，决策面就会没那么“歪”了，使得分类间隔变大，提高了泛化能力。</li>
+<li>哪些机器学习算法不需要做归一化处理？</li>
 </ol>
-<p>B正确，Hinge损失是0-1损失函数的一种代理函数，Hinge损失的具体形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">max(0,1−m)</div></pre></td></tr></table></figure></p>
-<p>运用Hinge损失的典型分类器是SVM算法。</p>
-<p>C错误。间隔应该是<code>2/||w||</code>才对，后半句应该没错，向量的模通常指的就是其二范数。</p>
-<p>D正确。考虑软间隔的时候，C对优化问题的影响就在于把a的范围从[0，+inf]限制到了[0,C]。C越小，那么a就会越小，目标函数拉格朗日函数导数为0可以求出w=求和ai∗yi∗xi，a变小使得w变小，因此间隔2/||w||变大<br>来源：@刘炫320，链接：<a href="http://blog.csdn.net/column/details/16442.html" target="_blank" rel="external">http://blog.csdn.net/column/details/16442.html</a></p>
-<p><a href="http://blog.csdn.net/timcompp/article/details/62237986" target="_blank" rel="external">http://blog.csdn.net/timcompp/article/details/62237986</a></p>
-<h1 id="svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习"><a href="#svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习" class="headerlink" title="svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习"></a>svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习</h1><ol>
-<li>SVM是一种二类分类的模型，它的基本模型是在特征空间中寻找间隔最大化的分离超平面的线性分类器。 </li>
-<li></li>
-<li>惩罚因子C决定了你有多重视离群点带来的损失，显然当所有离群点的松弛变量的和一定时，你定的C越大，对目标函数的损失也越大，此时就暗示着你非常不愿意放弃这些离群点，最极端的情况是你把C定为无限大，这样只要稍有一个点离群，目标函数的值马上变成无限大，马上让问题变成无解，这就退化成了硬间隔问题。<br>惩罚因子C不是一个变量，整个优化问题在解的时候，C是一个你必须事先指定的值，指定这个值以后，解一下，得到一个分类器，然后用测试数据看看结果怎么样，如果不够好，换一个C的值，再解一次优化问题，得到另一个分类器，再看看效果，如此就是一个参数寻优的过程，但这和优化问题本身决不是一回事，优化问题在解的过程中，C一直是定值，要记住。</li>
-<li>解决过拟合的办法是为SVM引入了松弛变量ξ（slack variable），将SVM公式的约束条件改为。因为松弛变量能够容忍异常点的存在，我们的支持向量和超平面都不会受到它的影响。<br>我们加上松弛变量的平方和，并求最小值。这样就达到一个平衡：既希望松弛变量存在以解决异常点问题，又不希望松弛变量太大导致分类解决太差。 </li>
+<p>概率模型不需要归一化，因为它们不关心变量的值，而是关心变量的分布和变量之间的条件概率，如决策树、rf。而像adaboost、svm、lr、KNN、KMeans之类的最优化问题就需要归一化。<br><strong>我理解归一化和标准化主要是为了使计算更方便</strong>,比如两个变量的量纲不同 可能一个的数值远大于另一个那么他们同时作为变量的时候 可能会造成数值计算的问题，比如说求<strong>矩阵的逆可能很不精确</strong>或者<strong>梯度下降法</strong>的收敛比较困难：对于线性模型，比如说LR，我有两个特征，一个是(0,1)的，一个是(0,10000)的，这样运用梯度下降时候，损失等高线是一个椭圆的形状，这样我想迭代到最优点，就需要很多次迭代，但是如果进行了归一化，那么等高线就是圆形的，那么SGD就会往原点迭代，需要的迭代次数较少。<br>还有如果需要计算欧式距离的话可能 量纲也需要调整 所以我估计lr 和 knn 保准话一下应该有好处。至于其他的算法 我也觉得如果变量量纲差距很大的话 先标准化一下会有好处。引用自@管博士<br>一般我习惯说树形模型，这里说的概率模型可能是差不多的意思。引用自@寒小阳</p>
+<ol>
+<li>对于树形结构为什么不需要归一化？</li>
 </ol>
-<h1 id="LR和SVM的联系与区别"><a href="#LR和SVM的联系与区别" class="headerlink" title="LR和SVM的联系与区别"></a>LR和SVM的联系与区别</h1><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><ol>
-<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题） </li>
-<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。</li>
-</ol>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
-<li>LR是参数模型，SVM是非参数模型。 </li>
-<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重。 </li>
-<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重。 </li>
-<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算。 </li>
-<li>logic 能做的 svm能做，但可能在准确率上有问题，svm能做的logic有的做不了。</li>
+<p><strong>数值缩放，不影响分裂点位置。因为第一步都是按照特征值进行排序的，排序的顺序不变，那么所属的分支以及分裂点就不会有不同</strong>。<br>另外，注意树模型是不能进行梯度下降的，因为树模型是阶跃的，阶跃点是不可导的，并且求导没意义，所以树模型（回归树）寻找最优点事通过寻找最优分裂点完成的。</p>
+<p>首先，归一化是归一到(0,1)</p>
+<p>要强调：能不归一化最好不归一化，之所以进行数据归一化是因为各维度的量纲不相同。而且需要看情况进行归一化。</p>
+<p>有些模型在各维度进行了不均匀的伸缩后，最优解与原来不等价（如SVM）需要归一化。</p>
+<p>有些模型伸缩有与原来等价，如：LR则不用归一化，但是实际中往往通过迭代求解模型参数，如果目标函数太扁（想象一下很扁的高斯模型）迭代算法会发生不收敛的情况，所以最坏进行数据归一化。</p>
+<p>本题解析来源：@我愛大泡泡，链接：<a href="http://blog.csdn.net/woaidapaopao/article/details/77806273" target="_blank" rel="external">http://blog.csdn.net/woaidapaopao/article/details/77806273</a><br>补充：其实本质是由于loss函数不同造成的，SVM用了欧拉距离，如果一个特征很大就会把其他的维度dominated。而LR可以通过权重调整使得损失函数不变。</p>
+<h1 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h1><p>连续特征的离散化：在什么情况下将连续的特征离散化之后可以获得更好的效果？<a href="https://www.zhihu.com/question/31989952" target="_blank" rel="external">https://www.zhihu.com/question/31989952</a><br>在工业界，很少直接将连续值作为逻辑回归模型的特征输入，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p>
+<ol>
+<li>离散特征的增加和减少都很容易，易于模型的快速迭代；</li>
+<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合；</li>
+<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力；</li>
+<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。<br>李沐曾经说过：模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。就看是喜欢折腾特征还是折腾模型了。通常来说，前者容易，而且可以n个人一起并行做，有成功经验；后者目前看很赞，能走多远还须拭目以待。</li>
 </ol>
 
       
@@ -420,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/30/数据预处理_归一化_离散化/" rel="next" title="数据预处理——归一化、离散化">
-                <i class="fa fa-chevron-left"></i> 数据预处理——归一化、离散化
+              <a href="/2018/01/30/梯度下降法和牛顿法的简介和比较/" rel="next" title="梯度下降法和牛顿法的简介和比较">
+                <i class="fa fa-chevron-left"></i> 梯度下降法和牛顿法的简介和比较
               </a>
             
           </div>
@@ -429,6 +419,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/30/SVM相关问题/" rel="prev" title="SVM相关问题">
+                SVM相关问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -557,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习"><span class="nav-number">1.</span> <span class="nav-text">svm算法的原理、如何组织训练数据、如何调节惩罚因子、如何防止过拟合、svm的泛化能力、增量学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LR和SVM的联系与区别"><span class="nav-number">2.</span> <span class="nav-text">LR和SVM的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">2.1.</span> <span class="nav-text">联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.2.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#归一化"><span class="nav-number">1.</span> <span class="nav-text">归一化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离散化"><span class="nav-number">2.</span> <span class="nav-text">离散化</span></a></li></ol></div>
             
 
           </div>
